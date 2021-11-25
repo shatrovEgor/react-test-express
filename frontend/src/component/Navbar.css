@@ -1,0 +1,6 @@
+.navbar {
+    height: 80px;
+    width: 100vw;
+    background-color: #354461;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5)
+}
