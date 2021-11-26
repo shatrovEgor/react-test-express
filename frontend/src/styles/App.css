@@ -15,3 +15,19 @@
     justify-content: center;
     overflow: hidden;
 }
+
+.modal {
+    position: absolute;
+    left: 0;
+    top: 64px;
+    background-color: white;
+    width: 350px;
+    height: 50vh;
+    transition: 0.1s;
+    border-radius: 0 0 10px 0;
+}
+
+.unactive {
+    opacity: 0;
+    pointer-events: none;
+}
