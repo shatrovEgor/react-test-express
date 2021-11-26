@@ -68,7 +68,7 @@ const QizeFirst = () => {
                         color='neutral'
                     >
                         <MenuItem value={10}>Мужской</MenuItem>
-                        <MenuItem value={20}>Женсикий</MenuItem>
+                        <MenuItem value={20}>Женский</MenuItem>
                         <MenuItem value={30}>Пока в раздумьях</MenuItem>
                     </Select>
                 </FormControl>

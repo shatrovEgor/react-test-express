@@ -1,11 +1,17 @@
+require('dotenv').config()
 const express = require('express')
 const moogoose = require('mongoose')
 const authRouter = require('./authRouter')
 const PORT = process.env.PORT || 3001
+const cors = require('cors')
 
 const app = express()
 
 app.use(express.json())
+app.use(cors({
+    credentials: true,
+    origin: process.env.CLIENT_URL
+}))
 app.use('/auth', authRouter)
 
 const start = async () => {
