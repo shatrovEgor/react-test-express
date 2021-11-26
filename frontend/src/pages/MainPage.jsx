@@ -21,6 +21,9 @@ const MainPage = () => {
       .then(function (responce) {
         console.log(responce.data);
       })
+      .then(
+        navigate('/test')
+      )
     }
 
     return(
