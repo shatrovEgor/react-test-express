@@ -7,8 +7,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Box from '@mui/material/Box';
-import FormGroup from '@mui/material/FormGroup';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 
 export const validate = values => {
     const errors = {}
@@ -182,4 +181,15 @@ export const renderCheckbox8 = ({ input, label }) => (
       }
       label='Гавайская (Томатный соус, моцарелла, куринная грудка, ананас)'
     />
+)
+
+export const renderTextAria = ({input, meta: { touched, error, warning }}) => (
+    <div>
+    <TextareaAutosize
+        {...input}
+        minRows={6}
+        placeholder="Поделитесь?"
+        style={{ width: 500 , backgroundColor: 'aliceblue', fontSize: '16px' }}
+    /> 
+    </div>
 )

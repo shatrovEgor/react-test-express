@@ -1,19 +1,13 @@
 import React from "react";
 import { reduxForm , Field } from "redux-form";
-import TextField from '@mui/material/TextField';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import '../styles/QizeFirst.css'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
-import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Button from '@mui/material/Button';
 import {
     renderTextField, 
@@ -28,35 +22,12 @@ import {
     renderCheckbox6,
     renderCheckbox7,
     renderCheckbox8,
+    renderTextAria
 
 } from "../forForm/validationQize"
 
 const QizeBody = (props) => {
     const { handleSubmit, pristine, submitting, invalid } = props 
-    const [age, setAge] = React.useState('');
-    const [check, setCheck] = React.useState({
-        Margherita: false,
-        Marinara: false,
-        QuattroStagioni: false,
-        Carbonara: false,
-        FruttiDiMare: false,
-        QuattroFormaggi: false,
-        hamPizza: false,
-        Havai: false,
-
-      });
-
-    const handleChange2 = (event) => {
-        setCheck({
-        ...check,
-        [event.target.name]: event.target.checked,
-    });
-    };
-
-    
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
 
     const theme = createTheme({
         palette: {
@@ -108,7 +79,6 @@ const QizeBody = (props) => {
                         data-testid="profile-name"
                     />
                 </FormControl>
-                
                 <Typography variant="subtitle2" align='center' sx={{fontSize: '16px', marginTop: '20px'}}>
                     Вопрос 5. Выберете несколько ваших любимых вкусов
                 </Typography>
@@ -163,19 +133,18 @@ const QizeBody = (props) => {
                     Вопрос 6. Есть ли у вас свой(фирменный) рецепт пиццы?
                 </Typography>
                  <FormControlLabel  control={<Checkbox color='neutral'/>} label="Конечно!" />
-                 <TextareaAutosize
-                    aria-label="minimum height"
-                    minRows={6}
-                    placeholder="Поделитесь?"
-                    style={{ width: 500 , backgroundColor: 'aliceblue', fontSize: '16px' }}
-                /> 
-                    <Button 
-                        disabled={invalid || pristine || submitting}
-                        type='submit'
-                        variant="contained"
-                        color='myblue'
-                        sx={{ width: '50%', height: '50px', marginTop: '50px', marginBottom: '20px'}}
-                    >закончить опрос</Button>
+                <Field
+                    name="textAria"
+                    component={renderTextAria}
+                    data-testid="profile-name"
+                />
+                <Button 
+                    disabled={invalid || pristine || submitting}
+                    type='submit'
+                    variant="contained"
+                    color='myblue'
+                    sx={{ width: '50%', height: '50px', marginTop: '50px', marginBottom: '20px'}}
+                >закончить опрос</Button>
             </ThemeProvider>
             </form>
     )
