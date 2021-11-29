@@ -1,10 +1,16 @@
 import { createStore, combineReducers } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import modal from './reducers/modal'
+import auth from './reducers/auth'
+import modalHello from './reducers/modalHello'
+import modalQize from './reducers/modalQize'
 import { reducer as reduxFormReducer } from 'redux-form';
 
 const reducers = combineReducers({
     modal,
+    auth,
+    modalHello,
+    modalQize,
     form: reduxFormReducer, // mounted under "form"
   });
 

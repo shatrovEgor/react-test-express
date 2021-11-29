@@ -4,8 +4,15 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import '../styles/TestPage.css'
 import store from "../store";
 import {modalActive} from '../actions'
+import { connect } from "react-redux";
 
-const HelloStart = () => {
+const mapStateToProps = state => {
+  return {
+      indicate: state.modalHello
+  }
+}
+
+const HelloStart = ({indicate}) => {
     const theme = createTheme({
         palette: {
           neutral: {
@@ -19,10 +26,8 @@ const HelloStart = () => {
         store.dispatch(modalActive())
     }
 
-    const [active, setActive] = useState(false)
-
     return(
-            <div className={active ? 'start-logo' : 'start-logo unactive'}>
+            <div className={indicate ? 'start-logo' : 'start-logo unactive'}>
                 <p>Qize</p>
                 <ThemeProvider theme={theme}>
                     <Button 
@@ -36,4 +41,4 @@ const HelloStart = () => {
     )
 }
 
-export default HelloStart;
+export default connect(mapStateToProps)(HelloStart);

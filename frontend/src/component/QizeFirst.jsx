@@ -6,11 +6,17 @@ import FormControl from '@mui/material/FormControl';
 import '../styles/QizeFirst.css'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import {connect} from 'react-redux'
 
-const QizeFirst = () => {
+const mapStateToProps = state => {
+    return {
+        indicate: state.modalQize
+    }
+}
+
+const QizeFirst = ({indicate}) => {
 
     const [age, setAge] = React.useState('');
-    const [active, setActive] = React.useState(true)
     
     const handleChange = (event) => {
         setAge(event.target.value);
@@ -26,8 +32,8 @@ const QizeFirst = () => {
       })
       
     return(
-        <div className={active ? 'qize-container' : 'unactive qize-container'}>
-            <h1>Qize First</h1>
+        <div className={indicate ? 'qize-container' : 'unactive qize-container'}>
+            <h1>Your favorite pizza</h1>
             <ThemeProvider theme={theme}>
                 <Typography variant="subtitle2" align='center' sx={{fontSize: '16px', marginTop: '20px'}}>
                     Вопрос 1. Ваше имя?
@@ -77,4 +83,4 @@ const QizeFirst = () => {
     )
 }
 
-export default QizeFirst;
+export default connect(mapStateToProps)(QizeFirst);

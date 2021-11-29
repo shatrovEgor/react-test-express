@@ -12,7 +12,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router';
 import { connect } from "react-redux";
 import store from "../store";
-import {modalActive, modalUnActive} from '../actions'
+import {modalActive, modalUnActive, modalUnActiveHel, logOut, modalActiveQz, modalActiveHel, modalUnActiveQz} from '../actions'
 
 const mapStateToProps = state => {
     return {
@@ -48,8 +48,17 @@ const  Navbar = ({indicate}) => {
 
   const handleCloseExit = () => {
     setAnchorEl(null);
+    store.dispatch(logOut())
+    store.dispatch(modalActiveHel())
+    store.dispatch(modalUnActiveQz())
     navigate('/')
   };
+
+  const qizeClick = () => {
+    store.dispatch(modalUnActive())
+    store.dispatch(modalUnActiveHel())
+    store.dispatch(modalActiveQz())
+  }
 
   const theme = createTheme({
     palette: {
@@ -63,12 +72,10 @@ const  Navbar = ({indicate}) => {
   return (
     <ThemeProvider theme={theme}>
         <div className={indicate ? 'modal' : 'modal unactive'}>
-            <p>Выберите опрос:</p>
-            <ul>
-                <li>Favorite PIZZA</li>
-                <li>Back or front?</li>
-                <li>etc...</li>
-            </ul>
+            <h1>Выберите опрос:</h1>
+            <p onClick={qizeClick}>Favorite pizza</p>
+            <p>etc...</p>
+            
         </div>
     <Box sx={{ flexGrow: 1, width: '100vw' }}>
       <AppBar position="static" color="neutral">

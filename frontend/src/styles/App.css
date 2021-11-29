@@ -25,7 +25,18 @@
     height: 50vh;
     transition: 0.1s;
     border-radius: 0 0 10px 0;
+    box-shadow: 4px 4px 10px rgb(202, 202, 202);
     z-index: 1;
+}
+
+.modal p {
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.modal p:hover {
+    cursor: pointer;
+    opacity: 0.8;
 }
 
 .unactive {

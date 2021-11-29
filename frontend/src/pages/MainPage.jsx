@@ -2,6 +2,8 @@ import React,{useState, useEffect} from "react";
 import '../styles/MainPage.css'
 import { useNavigate } from 'react-router';
 import Login from '../component/Login'
+import store from "../store";
+import { logIn } from "../actions";
 
 
 const MainPage = () => {
@@ -10,9 +12,10 @@ const MainPage = () => {
     const axios = require('axios').default
 
     useEffect(() => {
-        fetch('/api')
-        .then(response => response.json())
-        .then(response => setData(response.message))
+        axios.get('http://localhost:3001/api')
+        .then(function (responce) {
+          setData(responce.data.message)
+        })
     }, [])
 
     const subAuth = (dataAuth) => {
@@ -20,10 +23,11 @@ const MainPage = () => {
       axios.post('http://localhost:3001/auth/login', dataAuth)
       .then(function (responce) {
         console.log(responce.data);
+          if(responce.data.success){
+            store.dispatch(logIn())
+            navigate('/test')
+          }
       })
-      .then(
-        navigate('/test')
-      )
     }
 
     return(
