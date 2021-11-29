@@ -1,14 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useNavigate } from 'react-router';
 import { reduxForm , Field } from "redux-form";
 import {renderTextField, validate } from "../forForm/validation"
 
 const Login = (props) => {
     const { handleSubmit, pristine, submitting, invalid } = props
-      let navigate = useNavigate();
-  
   
       const theme = createTheme({
           palette: {
@@ -19,14 +16,10 @@ const Login = (props) => {
           },
         })
   
-      function hadleClick() {
-          
-      }
-  
       return(
           <div className="login-container">
             <h1>LogIn:</h1>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="login_fom">
             <ThemeProvider theme={theme}>
               <Field
                 name="username"
