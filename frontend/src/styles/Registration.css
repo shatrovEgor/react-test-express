@@ -1,0 +1,19 @@
+.reg-container {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+.modal_content {
+    background-color: #c6ab94;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+    width: 100vw;
+    margin: auto;
+    margin-top: 270px;
+}

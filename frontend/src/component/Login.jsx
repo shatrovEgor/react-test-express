@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { reduxForm , Field } from "redux-form";
 import {renderTextField, validate } from "../forForm/validation"
+import Registration from "./Registration";
 
 const Login = (props) => {
     const { handleSubmit, pristine, submitting, invalid } = props
+    const [active , setActive] = useState(false)
   
       const theme = createTheme({
           palette: {
@@ -15,10 +17,19 @@ const Login = (props) => {
             },
           },
         })
+
+        const clickChange = () => {
+          setActive(true)
+        }
+
+        const subReg = (dataAuth) => {
+          console.log(dataAuth);
+        }
   
       return(
-          <div className="login-container">
-            <h1>LogIn:</h1>
+        <div className="login-container">
+          <Registration indicate={active} setIndicate={setActive} onSubmit={subReg}/>
+          <h1>LogIn:</h1>
           <form onSubmit={handleSubmit} className="login_fom">
             <ThemeProvider theme={theme}>
               <Field
@@ -30,7 +41,7 @@ const Login = (props) => {
               <Field
                 name="password"
                 component={renderTextField}
-                placeholder='password'
+                placeholder='Password'
                 data-testid="password-first"
               />
                 <Button 
@@ -40,9 +51,12 @@ const Login = (props) => {
                     color='neutral'
                     sx={{ width: '90%', height: '61px', borderRadius: '40px', marginTop: '20px'}}
                 >начать тестирование</Button>
+                <div className="text">
+                  <p id='reg'>Don't have an account? </p><p id='create' onClick={clickChange}>Create</p>
+                </div>                
             </ThemeProvider>
           </form>
-          </div>
+        </div>
       )
   }
   

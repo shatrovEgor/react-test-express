@@ -18,3 +18,26 @@
 .login_fom {
     width: 400px;
 }
+
+#reg {
+    font-size: 18px;
+}
+
+#create {
+    font-size: 18px;
+}
+
+#create:hover {
+    opacity: 0.9;
+    cursor: pointer;
+    color: #354461;
+}
+
+.text {
+    margin-top: 10px;
+}
+
+.text p{
+    display: inline;
+    opacity: 0.4;
+}

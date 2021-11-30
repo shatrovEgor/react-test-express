@@ -6,10 +6,11 @@ import store from "../store";
 import { logIn } from "../actions";
 
 
+const axios = require('axios').default
+
 const MainPage = () => {
     const [data, setData] = useState(null)
     let navigate = useNavigate();
-    const axios = require('axios').default
 
     useEffect(() => {
         axios.get('http://localhost:3001/api')

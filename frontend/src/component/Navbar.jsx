@@ -74,6 +74,7 @@ const  Navbar = ({indicate}) => {
         <div className={indicate ? 'modal' : 'modal unactive'}>
             <h1>Выберите опрос:</h1>
             <p onClick={qizeClick}>Favorite pizza</p>
+            <p>Js or python</p>
             <p>etc...</p>
             
         </div>
