@@ -6,6 +6,7 @@ export const validate = values => {
     const requiredFields = [
       'username',
       'password',
+      'password_rep'
     ]
     requiredFields.forEach(field => {
       if (!values[field]) {

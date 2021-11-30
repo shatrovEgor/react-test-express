@@ -6,9 +6,9 @@ import { reduxForm , Field } from "redux-form";
 import {renderTextField, validate } from "../forForm/validationReg"
 
 
-const Registration = ({indicate, setIndicate}, props) => {
+const Registration = (props) => {
 
-    const { handleSubmit, pristine, submitting, invalid } = props
+    const { handleSubmit, pristine, submitting, invalid, indicate, setIndicate  } = props
     const theme = createTheme({
         palette: {
           neutral: {
