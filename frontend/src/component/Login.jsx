@@ -28,7 +28,7 @@ const Login = (props) => {
           axios.post('http://localhost:3001/auth/registration', dataReg)
           .then(function (res) {
             console.log(res);
-            if(res.data.registration) {
+            if(res.data.registration === true) {
               alert(res.data.message)
               setActive(false)
             } else {

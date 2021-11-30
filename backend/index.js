@@ -31,3 +31,14 @@ app.get('/api', ( req, res ) => {
         message: "Welcome to test"
     })
 })
+
+const urlencodedParser = express.urlencoded({extended: false});
+
+app.post('/qize', urlencodedParser,  (req, res) => {
+    if(!req.body) return res.sendStatus(400);
+    if(req.body.havai === true) {
+        return res.send(`Ясно любитель гавайской`)
+    } else {
+        res.send(`${req.body.name} - ${req.body.surname}`)
+    }
+})
