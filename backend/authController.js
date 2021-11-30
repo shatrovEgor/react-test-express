@@ -45,7 +45,7 @@ class authController {
             }
             const validPassword = bcrypt.compareSync(password, user.password)
             if(!validPassword) {
-                return res.status(400).json({message: `Введен неверный пароль`})
+                return res.json({ success: false})
             }
             const token = generateAccessToken(user._id, user.roles)
             return res.json({token, success: true})

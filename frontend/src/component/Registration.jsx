@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { reduxForm , Field } from "redux-form";
 import {renderTextField, validate } from "../forForm/validationReg"
+import { maxValue } from "../forForm/validation";
 
 
 const Registration = (props) => {
@@ -34,6 +35,7 @@ const Registration = (props) => {
                         name="password"
                         component={renderTextField}
                         placeholder='Password'
+                        validate={maxValue}
                         data-testid="password-first"
                     />
                     <Field

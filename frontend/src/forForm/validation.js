@@ -18,6 +18,11 @@ export const validate = values => {
     return errors
 }
 
+const maxLength = max => value =>
+      value && value.length < max ? `Пароль не менее 6 символов` : undefined
+
+      export const maxValue = maxLength(6)
+
 export const renderTextField = ({
     label,
     input,

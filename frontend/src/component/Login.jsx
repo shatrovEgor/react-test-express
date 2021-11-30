@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { reduxForm , Field } from "redux-form";
-import {renderTextField, validate } from "../forForm/validation"
+import {renderTextField, validate, maxValue } from "../forForm/validation"
 import Registration from "./Registration";
 
 const Login = (props) => {
@@ -42,6 +42,7 @@ const Login = (props) => {
                 name="password"
                 component={renderTextField}
                 placeholder='Password'
+                validate={maxValue}
                 data-testid="password-first"
               />
                 <Button 

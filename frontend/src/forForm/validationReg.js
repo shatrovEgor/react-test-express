@@ -16,6 +16,10 @@ export const validate = values => {
     if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.username)) {
         errors.username = 'Некорректный формат Email'
       }
+    
+    if(values.password !== values.password_rep) {
+        errors.password_rep = 'Повторите введенный пароль'
+    }
     return errors
 }
 

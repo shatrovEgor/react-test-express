@@ -27,6 +27,8 @@ const MainPage = () => {
           if(responce.data.success){
             store.dispatch(logIn())
             navigate('/test')
+          } else {
+            alert('Ошибка авторизации')
           }
       })
     }
