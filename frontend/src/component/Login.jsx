@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { reduxForm , Field } from "redux-form";
 import {renderTextField, validate, maxValue } from "../forForm/validation"
 import Registration from "./Registration";
+import axios from "axios";
 
 const Login = (props) => {
     const { handleSubmit, pristine, submitting, invalid } = props
@@ -22,8 +23,19 @@ const Login = (props) => {
           setActive(true)
         }
 
-        const subReg = (dataAuth) => {
-          console.log(dataAuth);
+        const subReg = (dataReg) => {
+          console.log(dataReg);
+          axios.post('http://localhost:3001/auth/registration', dataReg)
+          .then(function (res) {
+            console.log(res);
+            if(res.data.registration) {
+              alert(res.data.message)
+              setActive(false)
+            } else {
+              alert(res.data.message)
+            }
+
+          })
         }
   
       return(
