@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { reduxForm , Field } from "redux-form";
 import {renderTextField, validate, maxValue } from "../forForm/validation"
 import Registration from "./Registration";
 import axios from "axios";
+import store from "../store";
+import {modalActiveReg, modalUnActiveReg} from '../actions'
 
 const Login = (props) => {
   const { handleSubmit, pristine, submitting, invalid } = props
-  const [active , setActive] = useState(false)
 
     const theme = createTheme({
         palette: {
@@ -20,7 +21,7 @@ const Login = (props) => {
       })
 
       const clickChange = () => {
-        setActive(true)
+        store.dispatch(modalActiveReg())
       }
 
       const subReg = (dataReg) => {
@@ -28,9 +29,9 @@ const Login = (props) => {
         axios.post('http://localhost:3001/auth/registration', dataReg)
         .then(function (res) {
           console.log(res);
-          if(res.data.registration === true) {
+          if(res.data.registration === 'true') {
+            store.dispatch(modalUnActiveReg())
             alert(res.data.message)
-            setActive(false)
           } else {
             alert(res.data.message)
           }
@@ -40,7 +41,7 @@ const Login = (props) => {
 
     return(
       <div className="login-container">
-        <Registration indicate={active} setIndicate={setActive} onSubmit={subReg}/>
+        <Registration onSubmit={subReg}/>
         <h1>LogIn:</h1>
         <form onSubmit={handleSubmit} className="login_fom">
           <ThemeProvider theme={theme}>
