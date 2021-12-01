@@ -20,12 +20,12 @@
     position: absolute;
     left: 0;
     top: 64px;
-    background-color: white;
+    background-color: aliceblue;
     width: 350px;
     height: 50vh;
     transition: 0.1s;
     border-radius: 0 0 10px 0;
-    box-shadow: 4px 4px 10px rgb(202, 202, 202);
+    box-shadow: 1px 1px 5px rgb(180 179 179);
     z-index: 1;
 }
 
@@ -51,9 +51,19 @@
 }
 
 .css-1wc848c-MuiFormHelperText-root.Mui-error {
+    margin-top: 10px;
     font-size: 14px;
 }
 
 .css-1gpxnp4 {
     position: absolute;
+}
+
+#answer {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+h2 {
+    margin-top: 10px;
 }

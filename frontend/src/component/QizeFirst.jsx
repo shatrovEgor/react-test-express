@@ -2,6 +2,9 @@ import React from "react";
 import '../styles/QizeFirst.css'
 import {connect} from 'react-redux'
 import QizeBody from "./QizeBody";
+import axios from "axios";
+import store from "../store";
+import {saveQizeAnswer} from '../actions'
 
 
 const mapStateToProps = state => {
@@ -12,6 +15,11 @@ const mapStateToProps = state => {
 
 const subQize = (data) => {
     console.log(data);
+    axios.post('http://localhost:3001/qize', data)
+    .then(function (res) {
+        console.log(res.data);
+        store.dispatch(saveQizeAnswer(res.data))
+    })
 }
 
 const QizeFirst = ({indicate}) => {

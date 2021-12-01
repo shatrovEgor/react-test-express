@@ -25,6 +25,8 @@ import {
     renderTextAria
 
 } from "../forForm/validationQize"
+import store from "../store";
+import {modalUnActiveQz, modalActiveQzEnd} from '../actions'
 
 const QizeBody = (props) => {
     const { handleSubmit, pristine, submitting, invalid } = props 
@@ -41,6 +43,12 @@ const QizeBody = (props) => {
           }
         },
       })
+
+      const clickChange = () => {
+          window.scrollTo(0, -200)
+          store.dispatch(modalActiveQzEnd())
+          store.dispatch(modalUnActiveQz())
+      }
 
     return(
         <form onSubmit={handleSubmit}>
@@ -140,6 +148,7 @@ const QizeBody = (props) => {
             <Button 
                 disabled={invalid || pristine || submitting}
                 type='submit'
+                onClick={clickChange}
                 variant="contained"
                 color='myblue'
                 sx={{ width: '50%', height: '50px', marginTop: '50px', marginBottom: '20px'}}

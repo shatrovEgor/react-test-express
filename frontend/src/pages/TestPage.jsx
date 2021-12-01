@@ -3,6 +3,7 @@ import '../styles/TestPage.css'
 import Navbar from "../component/Navbar";
 import HelloStart from "../component/HelloStart";
 import QizeFirst from "../component/QizeFirst";
+import ModalEndQize from "../component/ModalEndQize";
 
 
 const TestPage = () => {
@@ -13,6 +14,7 @@ const TestPage = () => {
             <div className='container-test'>
                 <HelloStart/>
                 <QizeFirst/>
+                <ModalEndQize/>
             </div>
         </div>
     )
