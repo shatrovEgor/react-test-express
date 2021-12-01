@@ -36,9 +36,41 @@ const urlencodedParser = express.urlencoded({extended: false});
 
 app.post('/qize', urlencodedParser,  (req, res) => {
     if(!req.body) return res.sendStatus(400);
-    if(req.body.havai === true) {
-        return res.send(`Ясно любитель гавайской`)
-    } else {
-        res.send(`${req.body.name} - ${req.body.surname}`)
+    if(req.body.sex === "undefined") {
+        return res.send(`${req.body.name}, вы бы для начала с полом определились, а потом уже с любимой пиццей`)
     }
+    if(req.body.havai === true) {
+        return res.send(`Ясно, ${req.body.name} ${req.body.surname} любитель гавайской`)
+    } 
+    let counter = 0
+    if (req.body.margarita === true) {
+        counter++
+    }
+    if(req.body.marinara === true) {
+        counter++
+    }
+    if(req.body.fourSeason === true) {
+        counter++
+    }
+    if(req.body.carbonara === true) {
+        counter++
+    }
+    if(req.body.fish === true) {
+        counter++
+    }
+    if(req.body.fourChees === true) {
+        counter++
+    }
+    if(req.body.hamMash === true) {
+        counter++
+    }
+
+    if (counter > 3) {
+        if(req.body.textAria.length > 10) {
+            return res.send(`Да ${req.body.name} ${req.body.surname} у нас любитель пиццы. Целых ${counter} любимых вкуса, еще и такой отличный рецепт!`)
+        }
+        return res.send(`Да ${req.body.name} ${req.body.surname} у нас любитель пиццы. Целых ${counter} любимых вкуса`)
+    }
+
+    return res.send(`${req.body.name} ${req.body.surname} спасибо за ответы`)
 })

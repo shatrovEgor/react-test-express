@@ -12,7 +12,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router';
 import { connect } from "react-redux";
 import store from "../store";
-import {modalActive, modalUnActive, modalUnActiveHel, logOut, modalActiveQz, modalActiveHel, modalUnActiveQz} from '../actions'
+import {modalActive, modalUnActive, modalUnActiveHel, logOut, modalActiveQz, modalActiveHel, modalUnActiveQz, modalUnActiveQzEnd} from '../actions'
 
 const mapStateToProps = state => {
     return {
@@ -58,6 +58,7 @@ const  Navbar = ({indicate}) => {
     store.dispatch(modalUnActive())
     store.dispatch(modalUnActiveHel())
     store.dispatch(modalActiveQz())
+    store.dispatch(modalUnActiveQzEnd())
   }
 
   const theme = createTheme({

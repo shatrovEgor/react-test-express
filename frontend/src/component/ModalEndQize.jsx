@@ -40,7 +40,7 @@ const ModalEndQize = ({active, result}) => {
                         variant="contained"
                         onClick={clickChange}
                         color='neutral'
-                        sx={{ width: '50%', height: '61px', borderRadius: '20px', marginTop: '20px'}}
+                        sx={{ width: '50%', height: '61px', borderRadius: '20px', marginTop: '20px', marginBottom: '20px'}}
                     >
                         Следующий тест
                     </Button>
