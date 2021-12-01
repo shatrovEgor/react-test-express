@@ -44,6 +44,16 @@ export const renderTextField = ({
     />
   )
 
+  export const validName = value =>
+    value && !/^[а-я ,.'-]+$/i.test(value)
+      ? 'Некорректно введено имя'
+      : undefined
+
+  export const validSurname = value =>
+  value && !/^[а-я ,.'-]+$/i.test(value)
+    ? 'Некорректно введена фамилия'
+    : undefined
+
   export const renderSelectField = ({
     input,
     label,

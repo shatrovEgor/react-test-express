@@ -12,7 +12,9 @@ import Button from '@mui/material/Button';
 import {
     renderTextField, 
     renderSelectField, 
-    validate, 
+    validate,
+    validName,
+    validSurname, 
     renderRadioButton, 
     renderCheckbox,
     renderCheckbox2,
@@ -60,6 +62,7 @@ const QizeBody = (props) => {
                 name="name"
                 component={renderTextField}
                 data-testid="profile-name"
+                validate={validName}
             />
             <Typography variant="subtitle2" align='center' sx={{fontSize: '16px', marginTop: '20px'}}>
                 Вопрос 2. Ваша фамилия?
@@ -68,6 +71,7 @@ const QizeBody = (props) => {
                 name="surname"
                 component={renderTextField}
                 data-testid="profile-name"
+                validate={validSurname}
             />
             <Typography variant="subtitle2" align='center' sx={{fontSize: '16px', marginTop: '20px'}}>
                 Вопрос 3. Ваш пол?

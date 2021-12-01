@@ -51,6 +51,8 @@ const  Navbar = ({indicate}) => {
     store.dispatch(logOut())
     store.dispatch(modalActiveHel())
     store.dispatch(modalUnActiveQz())
+    store.dispatch(modalUnActive())
+    store.dispatch(modalUnActiveQzEnd())
     navigate('/')
   };
 
