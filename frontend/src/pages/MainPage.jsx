@@ -4,12 +4,23 @@ import { useNavigate } from 'react-router';
 import Login from '../component/Login'
 import store from "../store";
 import { logIn } from "../actions";
+import PuffLoader from "react-spinners/PuffLoader";
+import { css } from "@emotion/react";
 
 
 const axios = require('axios').default
 
+const override = css`
+  position: absolute;
+  top: 450px;
+  left: 0;
+  right: 0;
+  margin:auto;
+`;
+
 const MainPage = () => {
     const [data, setData] = useState(null)
+    const [loader, setLoader] = useState(false)
     let navigate = useNavigate();
 
     useEffect(() => {
@@ -19,9 +30,12 @@ const MainPage = () => {
         })
     }, [])
 
+
     const subAuth = (dataAuth) => {
+      setLoader(true)
       console.log(dataAuth);
-      axios.post('http://localhost:3001/auth/login', dataAuth)
+      setTimeout(() => {
+        axios.post('http://localhost:3001/auth/login', dataAuth)
       .then(function (responce) {
         console.log(responce.data);
           if(responce.data.success){
@@ -31,6 +45,18 @@ const MainPage = () => {
             alert('Ошибка авторизации')
           }
       })
+      .then(setLoader(false))
+      }, 2000)
+      // axios.post('http://localhost:3001/auth/login', dataAuth)
+      // .then(function (responce) {
+      //   console.log(responce.data);
+      //     if(responce.data.success){
+      //       store.dispatch(logIn())
+      //       navigate('/test')
+      //     } else {
+      //       alert('Ошибка авторизации')
+      //     }
+      // })
     }
 
     return(
@@ -40,7 +66,20 @@ const MainPage = () => {
             !data ? 'Server upal vse propalo(((' : data
           }
         </p>
-        <Login onSubmit={subAuth}/>
+        {
+          loader ?
+          <div className="loader">
+            <Login onSubmit={subAuth}/>
+            <PuffLoader 
+              color={'#354461'} 
+              loading={loader} 
+              size={100} 
+              css={override}
+            />
+          </div>
+          :
+          <Login onSubmit={subAuth}/>
+        }
     </div>
     )
 }
