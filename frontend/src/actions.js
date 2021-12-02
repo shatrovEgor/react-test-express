@@ -11,6 +11,8 @@ export const LOG_OUT = 'LOG_OUT'
 export const SAVE_QIZE_ANSWER = 'SAVE_QIZE_ANSWER'
 export const MODAL_ACTIVE_REG = 'MODAL_ACTIVE_REG'
 export const MODAL_UNACTIVE_REG = 'MODAL_UNACTIVE_REG'
+export const LOADER_ACTIVE = 'LOADER_ACTIVE'
+export const LOADER_UNACTIVE = 'LOADER_UNACTIVE'
 
 export const modalActive = () => ({type:MODAL_ACTIVE})
 export const modalUnActive = () => ({type:MODAL_UNACTIVE})
@@ -24,6 +26,8 @@ export const modalActiveReg = () => ({type:MODAL_ACTIVE_REG})
 export const modalUnActiveReg = () => ({type:MODAL_UNACTIVE_REG})
 export const logIn = () => ({type:LOG_IN})
 export const logOut = () => ({type:LOG_OUT})
+export const loaderActive = () => ({type:LOADER_ACTIVE})
+export const loaderUnactive = () => ({type:LOADER_UNACTIVE})
 
 export const saveQizeAnswer = (data) => ({
     type: SAVE_QIZE_ANSWER,

@@ -7,6 +7,7 @@ import modalQize from './reducers/modalQize'
 import modalQizeEnd from './reducers/modalQizeEnd';
 import saveQize from './reducers/saveQize';
 import modalReg from './reducers/modalReg'
+import modalLoader from './reducers/modalLoader'
 import { reducer as reduxFormReducer } from 'redux-form';
 
 const reducers = combineReducers({
@@ -17,6 +18,7 @@ const reducers = combineReducers({
     modalQizeEnd,
     saveQize,
     modalReg,
+    modalLoader,
     form: reduxFormReducer, // mounted under "form"
   });
 

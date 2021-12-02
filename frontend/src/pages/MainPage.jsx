@@ -35,17 +35,17 @@ const MainPage = () => {
       setLoader(true)
       console.log(dataAuth);
       setTimeout(() => {
-        axios.post('http://localhost:3001/auth/login', dataAuth)
-      .then(function (responce) {
-        console.log(responce.data);
-          if(responce.data.success){
-            store.dispatch(logIn())
-            navigate('/test')
-          } else {
-            alert('Ошибка авторизации')
-          }
-      })
-      .then(setLoader(false))
+          axios.post('http://localhost:3001/auth/login', dataAuth)
+          .then(function (responce) {
+            console.log(responce.data);
+              if(responce.data.success){
+                store.dispatch(logIn())
+                navigate('/test')
+              } else {
+                alert('Ошибка авторизации')
+              }
+          })
+          .then(setLoader(false))
       }, 2000)
       // axios.post('http://localhost:3001/auth/login', dataAuth)
       // .then(function (responce) {
