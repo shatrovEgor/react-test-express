@@ -27,7 +27,7 @@ import {
     renderTextAria
 } from "../forForm/validationQize"
 import store from "../store";
-import {modalUnActiveQz, modalActiveQzEnd} from '../actions'
+import {modalUnActiveQz} from '../actions'
 
 const QizeBody = (props) => {
     const { handleSubmit, pristine, submitting, invalid } = props 
@@ -47,7 +47,6 @@ const QizeBody = (props) => {
 
       const clickChange = () => {
           window.scrollTo(0, -200)
-          store.dispatch(modalActiveQzEnd())
           store.dispatch(modalUnActiveQz())
       }
 

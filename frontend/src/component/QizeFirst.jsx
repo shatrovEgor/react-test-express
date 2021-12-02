@@ -4,7 +4,8 @@ import {connect} from 'react-redux'
 import QizeBody from "./QizeBody";
 import axios from "axios";
 import store from "../store";
-import {saveQizeAnswer} from '../actions'
+import {saveQizeAnswer, modalActiveQzEnd} from '../actions'
+import { reset } from "redux-form";
 
 
 const mapStateToProps = state => {
@@ -17,8 +18,10 @@ const subQize = (data) => {
     console.log(data);
     axios.post('http://localhost:3001/qize', data)
     .then(function (res) {
+        store.dispatch(modalActiveQzEnd())
         console.log(res.data);
         store.dispatch(saveQizeAnswer(res.data))
+        store.dispatch(reset('qize'))
     })
 }
 
