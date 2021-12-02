@@ -25,7 +25,6 @@ import {
     renderCheckbox7,
     renderCheckbox8,
     renderTextAria
-
 } from "../forForm/validationQize"
 import store from "../store";
 import {modalUnActiveQz, modalActiveQzEnd} from '../actions'

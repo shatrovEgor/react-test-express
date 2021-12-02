@@ -13,32 +13,32 @@ const mapStateToProps = state => {
 }
 
 const HelloStart = ({indicate}) => {
-    const theme = createTheme({
-        palette: {
-          neutral: {
-            main: '#354461',
-            contrastText: '#fff',
-          },
+  const theme = createTheme({
+      palette: {
+        neutral: {
+          main: '#354461',
+          contrastText: '#fff',
         },
-      })
+      },
+    })
 
-    const clickBtn = () => {
-        store.dispatch(modalActive())
-    }
+  const clickBtn = () => {
+      store.dispatch(modalActive())
+  }
 
-    return(
-            <div className={indicate ? 'start-logo' : 'start-logo unactive'}>
-                <p>Qize</p>
-                <ThemeProvider theme={theme}>
-                    <Button 
-                        variant="contained"
-                        color='neutral'
-                        onClick={clickBtn}
-                        sx={{ width: '15%', height: '50px', marginTop: '20px'}}
-                    >выбрать опрос</Button>
-                </ThemeProvider>
-        </div>
-    )
+  return(
+    <div className={indicate ? 'start-logo' : 'start-logo unactive'}>
+      <p>Qize</p>
+      <ThemeProvider theme={theme}>
+          <Button 
+              variant="contained"
+              color='neutral'
+              onClick={clickBtn}
+              sx={{ width: '15%', height: '50px', marginTop: '20px'}}
+          >выбрать опрос</Button>
+      </ThemeProvider>
+    </div>
+  )
 }
 
 export default connect(mapStateToProps)(HelloStart);

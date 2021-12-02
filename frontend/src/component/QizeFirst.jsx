@@ -26,7 +26,7 @@ const QizeFirst = ({indicate}) => {
     return(
         <div className={indicate ? 'qize-container' : 'unactive qize-container'}>
             <h1>Your favorite pizza</h1>
-                <QizeBody onSubmit={subQize}/>
+            <QizeBody onSubmit={subQize}/>
         </div>
     )
 }

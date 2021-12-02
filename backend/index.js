@@ -67,13 +67,22 @@ app.post('/qize', urlencodedParser,  (req, res) => {
         counter++
     }
 
-    if (counter > 3) {
+    if (counter === 4) {
         if(req.body.textAria) {
             if(req.body.textAria.length > 10) {
                 return res.send(`${req.body.name} ${req.body.surname} у нас любитель пиццы. Целых ${counter} любимых вкуса, еще и такой отличный рецепт!`)
             }
         }
         return res.send(`${req.body.name} ${req.body.surname} у нас любитель пиццы. Целых ${counter} любимых вкуса`)
+    }
+
+    if(counter > 4) {
+        if(req.body.textAria) {
+            if(req.body.textAria.length > 10) {
+                return res.send(`${req.body.name} ${req.body.surname} у нас любитель пиццы. Целых ${counter} любимых вкусов, еще и такой отличный рецепт!`)
+            }
+        }
+        return res.send(`${req.body.name} ${req.body.surname} у нас любитель пиццы. Целых ${counter} любимых вкусов`)
     }
 
     return res.send(`${req.body.name} ${req.body.surname} спасибо за ответы`)

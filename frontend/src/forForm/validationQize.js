@@ -88,7 +88,7 @@ export const renderTextField = ({
       </RadioGroup>
   )
   
-  export const renderCheckbox = ({ input, label }) => (
+export const renderCheckbox = ({ input, label }) => (
       <FormControlLabel
         control={
           <Checkbox
@@ -101,7 +101,7 @@ export const renderTextField = ({
       />
   )
 
-  export const renderCheckbox2 = ({ input, label }) => (
+export const renderCheckbox2 = ({ input, label }) => (
       <FormControlLabel
         control={
           <Checkbox
@@ -114,7 +114,7 @@ export const renderTextField = ({
       />
   )
 
-  export const renderCheckbox3 = ({ input, label }) => (
+export const renderCheckbox3 = ({ input, label }) => (
     <FormControlLabel
       control={
         <Checkbox
@@ -197,7 +197,7 @@ export const renderTextAria = ({input, meta: { touched, error, warning }}) => (
         {...input}
         minRows={6}
         placeholder="Поделитесь?"
-        style={{ width: 500 , backgroundColor: 'aliceblue', fontSize: '16px' }}
+        style={{ width: 500 , backgroundColor: 'aliceblue', fontSize: '16px', resize: 'none', outline: 'none' }}
     /> 
     </div>
 )

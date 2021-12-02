@@ -20,7 +20,6 @@ const mapStateToProps = state => {
     }
 }
 
-
 const  Navbar = ({indicate}) => {
     let navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -80,7 +79,6 @@ const  Navbar = ({indicate}) => {
             <p>Js vs Python</p>
             <p>Internal combustion engine vs electrical engine</p>
             <p>etc...</p>
-            
         </div>
     <Box sx={{ flexGrow: 1, width: '100vw' }}>
       <AppBar position="static" color="neutral">

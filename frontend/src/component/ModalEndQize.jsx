@@ -13,7 +13,6 @@ const mapStateToProps = state => {
     }
   }
   
-
 const ModalEndQize = ({active, result}) => {
 
     const clickChange = () => {
